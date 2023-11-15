@@ -1,0 +1,120 @@
+@import "variables";
+
+.header {
+    position: relative;
+    z-index: 1;
+    // .header__container
+    &__container {
+        max-width: 1032px;
+        margin: 0 auto;
+        padding: 0 10px;
+        box-sizing: content-box;
+    }
+    // .header__row
+    &__row {
+        min-height: 78px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    // .header__menu
+    &__menu {}
+}
+.menu {
+    // .menu__burger
+    &__burger {}
+    // .menu__body
+    &__body {}
+    // .menu__list
+    &__list {
+        display: flex;
+        & li:not(:last-child) {
+            margin: 0px 34px 0px 0px;
+        }
+    }
+    // .menu__link
+    &__link {
+        color: $black;
+        font-size: 20px;
+        font-weight: 500;
+        transition: 0.2s;
+
+        @media (min-width: 992px) {       
+            &:hover { // на устройствах без touch screen hover не нужен
+                color: $primary;
+            }
+        }
+
+    }
+
+    @media (max-width: 767px) {
+        &__burger {
+            width: 30px;
+            height: 20px;
+            position: relative;
+            cursor: pointer;
+            z-index: 1;
+
+            & span {
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: $dark;
+                top: calc(50% - 1px);
+                transition: 0.3s;
+
+                &:nth-child(1) {
+                    top: 0;
+                }
+                &:nth-child(3) {
+                    top: auto;
+                    bottom: 0;
+                }
+            }
+
+            &._active {
+                & span {
+                    top: calc(50% - 1px);
+                    &:nth-child(1) {
+                        transform: rotate(-45deg);
+                    }
+                    &:nth-child(2) {
+                        transform: scale(0);
+                    }
+                    &:nth-child(3) {
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+        }
+
+        &__body {
+            position: fixed;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: 0.3s;
+            padding: 100px 0px 50px 0px;
+            background-color: rgba(255, 255, 255, 0.95);
+            overflow: auto;
+
+            &._active {
+                top: 0;
+            }
+
+            & .menu__list {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                & li:not(:last-child) {
+                    margin: 0px 0px 48px 0px;
+                }
+
+                & .menu__link {
+                    font-size: 28px;
+                }
+            }
+        }
+    }
+}
