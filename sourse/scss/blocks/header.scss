@@ -1,4 +1,4 @@
-@import "variables";
+@import "../variables.scss";
 
 .header {
     position: relative;
@@ -38,6 +38,10 @@
         font-size: 20px;
         font-weight: 500;
         transition: 0.2s;
+
+        &._active {
+            color: $primary;
+        }
 
         @media (min-width: 992px) {       
             &:hover { // на устройствах без touch screen hover не нужен

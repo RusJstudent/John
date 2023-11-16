@@ -1,0 +1,57 @@
+@import "../variables.scss";
+
+.item-post {
+    // .item-post__title
+    &__title {
+        display: inline-block;
+        font-size: 26px;
+        font-weight: 700;
+        transition: 0.2s;
+        &:hover {
+            color: $primary;
+        }
+    }
+    &__title:not(:last-child) {
+        margin: 0px 0px 17px 0px;
+    }
+    // .item-post__description
+    &__description {
+        font-size: 18px;
+    }
+    &__description:not(:last-child) {
+        margin: 0px 0px 11px 0px;
+    }
+    // .item-post__date
+    &__date {}
+    // .item-post__label
+    &__label {}
+    &__label:not(:first-child) {
+        margin: 0px 0px 0px 48px;
+        position: relative;
+    }
+    &__label::before {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 21px;
+        left: -25.5px;
+        top: 3px;
+        background-color: $dark;
+    }
+    // .item-post__text
+    &__text {}
+
+    @media (max-width: 767px) {
+        &__description {
+            font-size: 16px;
+        }
+
+        &__title:not(:last-child) {
+            margin: 0px 0px 12px 0px;
+        }
+
+        &__description:not(:last-child) {
+            margin: 0px 0px 19px 0px;
+        }
+    }
+}

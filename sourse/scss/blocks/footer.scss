@@ -1,0 +1,32 @@
+@import "../variables.scss";
+
+.footer {
+    min-height: 182px;
+    padding: 50px 0;
+    // .footer__container
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    // .footer__socials
+    &__socials {}
+    &__socials:not(:last-child) {
+        margin: 0px 0px 26px 0px;
+    }
+    // .footer__social
+    &__social {
+        font-size: 30px;
+        transition: 0.2s;
+        &:hover {
+            color: $primary;
+        }
+    }
+    &__social:not(:first-child) {
+        margin: 0px 0px 0px 35px;
+    }
+    // .footer__copy
+    &__copy {
+        font-size: 14px;
+    }
+}
