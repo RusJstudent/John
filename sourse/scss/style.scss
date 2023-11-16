@@ -283,39 +283,62 @@ body {
     // .featured__item
     &__item {}
     
-    // @media (max-width: 767px) {
-    //     &__content {
-    //         display: flex;
-    //     }
-    // }
+    @media (max-width: 767px) {
+        padding: 3px 0px 17px 0px;
+        &__title {
+            text-align: center;
+            margin: 0px 0px 2px 0px;
+        }
+    }
 }
-.item-feature {
-    display: flex;
-    position: relative;
-    padding: 0px 0px 30px 0px;
-    // .item-feature__image
+
+.works {
+    @media (max-width: 767px) {
+        display: flex;
+        overflow: auto;
+    }
+    // .works__item
+    &__item {
+        display: flex;
+        position: relative;
+        padding: 0px 0px 30px 0px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background-color: #E0E0E0;
+            bottom: 0px;
+        }
+    
+        &:not(:last-child) {
+            margin: 0px 0px 30px 0px;
+        }
+    }
+    // .works__image
     &__image {
         flex: 0 1 246px;
         img {
             border-radius: 6px;
         }
     }
-    // .item-feature__body
+    // .works__body
     &__body {}
     &__body:not(:first-child) {
         margin: 0px 0px 0px 18px;
     }
-    // .item-feature__title
+    // .works__title
     &__title {
         font-size: 30px;
         font-weight: 700;
         margin: 0px 0px 12px 0px;
     }
-    // .item-feature__description
+    // .works__description
     &__description {
         margin: 0px 0px 17px 0px;
     }
-    // .item-feature__year
+    // .works__year
     &__year {
         height: 25px;
         padding: 0 10px;
@@ -327,31 +350,21 @@ body {
         font-weight: 900;
         color: #fff;
     }
-    // .item-feature__label
+    // .works__label
     &__label {
         margin: 0px 0px 0px 26px;
         font-size: 20px;
         color: $light;
     }
-    // .item-feature__text
+    // .works__text
     &__text {}
 
-    &::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 1px;
-        background-color: #E0E0E0;
-        bottom: 0px;
-    }
-
-    &:not(:last-child) {
-        margin: 0px 0px 30px 0px;
-    }
-
     @media (max-width: 767px) {
-        display: block;
-        padding: 0px 8px 30px 8px;
+        &__item {
+            flex: 0 0 90%;
+            display: block;
+            padding: 0px 8px 30px 8px;
+        }
 
         &__body:not(:first-child) {
             margin: 17px 0px 0px 0px;
@@ -370,6 +383,19 @@ body {
                 left: 0;
                 object-fit: cover;
             }
+        }
+
+        &__title {
+            font-size: 24px;
+            margin: 0px 0px 12px 0px;
+        }
+
+        &__year {
+            font-size: 16px;
+        }
+
+        &__label {
+            font-size: 16px;
         }
     }
 }
